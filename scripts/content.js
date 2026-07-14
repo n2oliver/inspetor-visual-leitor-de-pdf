@@ -43,26 +43,21 @@ async function lerPDF(url, from, to) {
         }
         const pdf = await getDocumentProxy(new Uint8Array(buffer));
 
-
-        const speakerResult = await chrome.storage.local.get(["insp_visual_leitor_de_tela"]);
-        if (speakerResult.insp_visual_leitor_de_tela == true) {
-            let mergePages = true;
-            if(!from && !to) {
-                mergePages = true;
-            } else {
-                mergePages = false;
-            }
-            const { totalPages, text } = await extractText(pdf, {mergePages});
-            let finalText = text;
-            if(from || to) {
-                finalText = "";
-                for(let i = from ? parseInt(from) : 0; i <= (to ? parseInt(to) : text.length); i++) {
-                    finalText += text[i-1] + '\n';
-                }
-            }
-            speak(finalText);
+        let mergePages = true;
+        if(!from && !to) {
+            mergePages = true;
+        } else {
+            mergePages = false;
         }
-        
+        const { totalPages, text } = await extractText(pdf, {mergePages});
+        let finalText = text;
+        if(from || to) {
+            finalText = "";
+            for(let i = from ? parseInt(from) : 0; i <= (to ? parseInt(to) : text.length); i++) {
+                finalText += text[i-1] + '\n';
+            }
+        }
+        speak(finalText);
     } catch(e) {
         alert("Primeiro selecione o .pdf no campo 'Escolher arquivo'.");
         document.getElementById(playButtonId).style.display = "block";
@@ -79,15 +74,16 @@ let currentTab = {};
     if(!chrome.storage) {
         return;
     }
-    await chrome.storage.local.set({'inspetor_visual_bloqueado': false});
-    localStorage.setItem('inspetor_visual_bloqueado', false);
+    await chrome.storage.local.set({'leitor_pdf_bloqueado': false});
+    localStorage.setItem('leitor_pdf_bloqueado', false);
 })();
 
 window.addEventListener('load', async () => {
     if(!chrome.storage) {
         return;
     }
-    if(ehPDF) {
+    const result = await chrome.storage.local.get(["insp_visual_ligado"]);
+    if(ehPDF && result.insp_visual_ligado) {
         buildLeitorDePDF();
     }
     
@@ -102,19 +98,23 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     if (request.action === "ocultar") {
         ocultarLeitorDePDF();
     }
+    if (request.action === "exibir") {
+        exibirLeitorDePDF();
+    }
 
     return true;
 });
 async function eventos(event) {
-    if(event && event.keyCode == 79) {
-        const hideState = await chrome.storage.local.get(['insp_visual_ocultar']);
-        if(hideState.insp_visual_ocultar) {
-            chrome.storage.local.set({insp_visual_ocultar: false});
+    if(event && event.keyCode == 79 && event.altKey && event.shiftKey) {
+        const hideState = await chrome.storage.local.get(['leitor_pdf_ocultar']);
+        if(hideState.leitor_pdf_ocultar) {
+            chrome.storage.local.set({leitor_pdf_ocultar: false});
             exibirLeitorDePDF();
         } else {
-            chrome.storage.local.set({insp_visual_ocultar: true});
-            chrome.storage.local.set({inspetor_visual_bloqueado: false});
-            localStorage.setItem("inspetor_visual_bloqueado", false);
+            chrome.storage.local.set({leitor_pdf_ocultar: true});
+            chrome.storage.local.set({leitor_pdf_bloqueado: false});
+            localStorage.setItem("leitor_pdf_bloqueado", false);
+            ocultarLeitorDePDF();
             
             chrome.runtime.sendMessage({
                 action: "ocultar",
@@ -122,7 +122,6 @@ async function eventos(event) {
             }, (resposta) => {
             });
         }
-        ocultarLeitorDePDF();
     }
 }
 function ocultarLeitorDePDF() {
@@ -158,8 +157,12 @@ function ocultarLeitorDePDF() {
         }
     }
 }
-function exibirLeitorDePDF() {
-    if(ehPDF) {
+async function exibirLeitorDePDF() {
+    const result = await chrome.storage.local.get(["insp_visual_ligado"]);
+    if(ehPDF && result.insp_visual_ligado) {
+        if(!document.getElementById(playButtonId)) {
+            buildLeitorDePDF();
+        }
         const fileField = document.getElementById(fileFieldId);
         const playButton = document.getElementById(playButtonId);
         const pauseButton = document.getElementById(pauseButtonId);
@@ -168,7 +171,7 @@ function exibirLeitorDePDF() {
         const de = document.getElementById(deId);
         const ate = document.getElementById(ateId);
 
-        if(fileField) {
+        if(fileField && window.location.protocol == 'file:') {
             fileField.style.display = 'block';
         }
         if(playButton && 'speechSynthesis' in window && !speechSynthesis.paused) {

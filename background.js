@@ -1,7 +1,5 @@
 chrome.runtime.onInstalled.addListener(async () => {
-  await chrome.storage.local.set({insp_visual_ligado: true});
-  await chrome.storage.local.set({insp_visual_leitor_de_tela: true});
-  await chrome.storage.local.set({insp_visual_ocultar: false});
+  await chrome.storage.local.set({leitor_pdf_ocultar: false});
 });
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
   const [tab] = await chrome.tabs.query({
@@ -13,8 +11,27 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
   if(message.action == "salvarTabId") {
     chrome.storage.local.set({tabId: tab.id});
   }
-  if(message.action == "ocultar") {
-    chrome.runtime.sendMessage({ action: "ocultar", targetElementId: message.dados.targetElementId });
+  
+  if(message.action == "reexibir") {
+    chrome.tabs.sendMessage(tab.id, { action: "exibir", targetElementId: message.dados.targetElementId },
+      (response) => {
+        if (chrome.runtime.lastError) {
+            console.error(chrome.runtime.lastError);
+            return;
+        }
+      }
+    );
+  }
+  
+  if(message.action == "ocultarPeloLeitor") {
+    chrome.tabs.sendMessage(tab.id, { action: "ocultar", targetElementId: message.dados.targetElementId },
+      (response) => {
+        if (chrome.runtime.lastError) {
+            console.error(chrome.runtime.lastError);
+            return;
+        }
+      }
+    );
   }
   sendResponse({
       tabId
