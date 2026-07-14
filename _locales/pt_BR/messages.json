@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Abra e ouça PDFs usando o leitor integrado.",
+        "description": "Mensagem de dica para abrir e ouvir PDFs usando o leitor integrado."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Ative o Leitor de PDF para poder ouvi-lo.",
+        "description": "Mensagem de dica quando o Leitor de PDF está desativado."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Ativado",
+        "description": "Rótulo indicando que o Leitor de PDF está habilitado."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Desativado",
+        "description": "Rótulo indicando que o Leitor de PDF está desabilitado."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Bloquear na sobreposição",
+        "description": "Etiqueta para a opção de bloquear o Leitor de PDF ao sobrepor elementos."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Leitor de tela",
+        "description": "Rótulo para a opção de ativar o suporte ao leitor de tela no Visual Inspector."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "Ocultar o Leitor de PDF",
+        "description": "Etiqueta para a opção de ocultar o Leitor de PDF."
+    },
+    "btnInfo": {
+        "message": "1. Abra um PDF e ouça-o em voz alta (como um audiobook).",
+        "description": "Mensagem informativa para o Leitor de PDF."
+    },
+    "info": {
+        "message": "<ol><li>Abra um PDF e ouça-o em voz alta (como um audiobook).</li></ol>",
+        "description": "Mensagem informativa para o Leitor de PDF."
+    }
+}

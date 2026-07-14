@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Open and listen to PDFs using the built-in reader.",
+        "description": "Tooltip message for opening and listening to PDFs using the built-in reader."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Enable the PDF Reader to listen to it.",
+        "description": "Tooltip message when the PDF Reader is disabled."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Enabled",
+        "description": "Label indicating that the PDF Reader is enabled."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Disabled",
+        "description": "Label indicating that the PDF Reader is disabled."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Lock on overlay",
+        "description": "Label for the option to lock the PDF Reader when overlaying elements."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Screen reader",
+        "description": "Label for the option to enable screen reader support in Visual Inspector."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "Hide PDF Reader",
+        "description": "Label for the option to hide the PDF Reader."
+    },
+    "btnInfo": {
+        "message": "1. Open a PDF and listen to it aloud (like an audiobook).",
+        "description": "Informational message for the PDF Reader."
+    },
+    "info": {
+        "message": "<ol><li>Open a PDF and listen to it aloud (like an audiobook).</li></ol>",
+        "description": "Informational message for the PDF Reader."
+    }
+}

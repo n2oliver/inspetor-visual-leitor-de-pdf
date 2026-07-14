@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "組み込みのリーダーを使用してPDFを開き、読み上げを聞く。",
+        "description": "組み込みのリーダーを使用してPDFを開き、読み上げを聞くためのツールチップメッセージ。"
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "PDFリーダーを有効にして読み上げを聞く。",
+        "description": "PDFリーダーが無効な場合のツールチップメッセージ。"
+    },
+    "labelForInspVisualLigado": {
+        "message": "有効",
+        "description": "PDFリーダーが有効であることを示すラベル。"
+    },
+    "labelForInspVisualDesligado": {
+        "message": "無効",
+        "description": "PDFリーダーが無効であることを示すラベル。"
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "オーバーレイ時に固定",
+        "description": "要素を重ねた際にPDFリーダーを固定するオプションのラベル。"
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "スクリーンリーダー",
+        "description": "Visual Inspectorでスクリーンリーダーのサポートを有効にするオプションのラベル。"
+    },
+    "labelForInspVisualOcultar": {
+        "message": "PDFリーダーを非表示にする",
+        "description": "PDFリーダーを非表示にするオプションのラベル。"
+    },
+    "btnInfo": {
+        "message": "1. PDFを開き、（オーディオブックのように）読み上げを聞く。",
+        "description": "PDFリーダーに関する情報メッセージ。"
+    },
+    "info": {
+        "message": "<ol><li>PDFを開き、（オーディオブックのように）読み上げを聞く。</li></ol>",
+        "description": "PDFリーダーに関する情報メッセージ。"
+    }
+}

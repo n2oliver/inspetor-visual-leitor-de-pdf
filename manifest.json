@@ -1,25 +1,18 @@
 {
   "manifest_version": 3,
   "name": "Inspetor Visual - Leitor de PDF",
-  "version": "0.5.1",
+  "version": "0.5.2",
+  "default_locale": "en",
   "description": "Ouça audiobooks a partir de arquivos PDF no navegador.",
   "permissions": [
-    "storage",
-    "clipboardWrite",
-    "scripting"
-  ],
-  "host_permissions": [
-    "<all_urls>"
+    "storage"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "inspetorvisual@n2oliver.com",
-      "data_collection_permissions": {
-        "required": ["websiteActivity", "websiteContent"]
-      }
+      "id": "inspetorvisual@n2oliver.com"
     }
   },
   "action": {

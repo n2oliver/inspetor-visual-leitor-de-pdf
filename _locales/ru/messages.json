@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Открывайте и слушайте PDF-файлы с помощью встроенного средства чтения.",
+        "description": "Подсказка для открытия и прослушивания PDF-файлов с помощью встроенного средства чтения."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Включите средство чтения PDF, чтобы прослушивать файлы.",
+        "description": "Подсказка, отображаемая, когда средство чтения PDF отключено."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Включено",
+        "description": "Метка, указывающая, что средство чтения PDF включено."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Отключено",
+        "description": "Метка, указывающая, что средство чтения PDF отключено."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Закрепить при наложении",
+        "description": "Метка для опции закрепления средства чтения PDF при наложении элементов."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Программа чтения с экрана",
+        "description": "Метка для опции включения поддержки программы чтения с экрана в Visual Inspector."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "Скрыть средство чтения PDF",
+        "description": "Метка для опции скрытия средства чтения PDF."
+    },
+    "btnInfo": {
+        "message": "1. Откройте PDF-файл и прослушайте его (как аудиокнигу).",
+        "description": "Информационное сообщение для средства чтения PDF."
+    },
+    "info": {
+        "message": "<ol><li>Откройте PDF-файл и прослушайте его (как аудиокнигу).</li></ol>",
+        "description": "Информационное сообщение для средства чтения PDF."
+    }
+}

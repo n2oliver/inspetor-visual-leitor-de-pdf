@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "বিল্ট-ইন রিডার ব্যবহার করে PDF খুলুন এবং শুনুন।",
+        "description": "বিল্ট-ইন রিডার ব্যবহার করে PDF খোলা এবং শোনার জন্য টুলটিপ বার্তা।"
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "PDF শোনার জন্য PDF রিডার চালু করুন।",
+        "description": "PDF রিডার বন্ধ বা নিষ্ক্রিয় অবস্থায় টুলটিপ বার্তা।"
+    },
+    "labelForInspVisualLigado": {
+        "message": "চালু",
+        "description": "PDF রিডার চালু আছে তা নির্দেশকারী লেবেল।"
+    },
+    "labelForInspVisualDesligado": {
+        "message": "বন্ধ",
+        "description": "PDF রিডার বন্ধ বা নিষ্ক্রিয় আছে তা নির্দেশকারী লেবেল।"
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "ওভারলে-তে লক করুন",
+        "description": "অন্য কোনো উপাদানের ওপর ওভারলে করার সময় PDF রিডার লক করার বিকল্পের লেবেল।"
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "স্ক্রিন রিডার",
+        "description": "Visual Inspector-এ স্ক্রিন রিডার সুবিধা চালু করার বিকল্পের লেবেল।"
+    },
+    "labelForInspVisualOcultar": {
+        "message": "PDF রিডার লুকান",
+        "description": "PDF রিডার লুকানোর বিকল্পের লেবেল।"
+    },
+    "btnInfo": {
+        "message": "১. একটি PDF খুলুন এবং সেটি উচ্চস্বরে শুনুন (অডিওবুকের মতো)।",
+        "description": "PDF রিডারের জন্য তথ্যমূলক বার্তা।"
+    },
+    "info": {
+        "message": "<ol><li>একটি PDF খুলুন এবং সেটি উচ্চস্বরে শুনুন (অডিওবুকের মতো)।</li></ol>",
+        "description": "PDF রিডারের জন্য তথ্যমূলক বার্তা।"
+    }
+}

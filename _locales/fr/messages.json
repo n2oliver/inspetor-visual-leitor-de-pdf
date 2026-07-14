@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Ouvrez et écoutez des PDF à l'aide du lecteur intégré.",
+        "description": "Message d'info-bulle pour ouvrir et écouter des PDF avec le lecteur intégré."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Activez le lecteur PDF pour l'écouter.",
+        "description": "Message d'info-bulle lorsque le lecteur PDF est désactivé."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Activé",
+        "description": "Libellé indiquant que le lecteur PDF est activé."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Désactivé",
+        "description": "Libellé indiquant que le lecteur PDF est désactivé."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Verrouiller en superposition",
+        "description": "Libellé de l'option permettant de verrouiller le lecteur PDF lors de la superposition d'éléments."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Lecteur d'écran",
+        "description": "Libellé de l'option permettant d'activer la prise en charge du lecteur d'écran dans l'inspecteur visuel."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "Masquer le lecteur PDF",
+        "description": "Libellé de l'option permettant de masquer le lecteur PDF."
+    },
+    "btnInfo": {
+        "message": "1. Ouvrez un PDF et écoutez-le à voix haute (comme un livre audio).",
+        "description": "Message d'information pour le lecteur PDF."
+    },
+    "info": {
+        "message": "<ol><li>Ouvrez un PDF et écoutez-le à voix haute (comme un livre audio).</li></ol>",
+        "description": "Message d'information pour le lecteur PDF."
+    }
+}

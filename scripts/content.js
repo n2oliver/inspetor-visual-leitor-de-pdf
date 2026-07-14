@@ -339,10 +339,12 @@ fill="currentColor">
 
     de.id = deId;
     de.type = "number";
+    de.classList.add("leitorPDF");
     Object.assign(de.style, deStyles);
     
     ate.id = ateId;
     ate.type = "number";
+    ate.classList.add("leitorPDF");
     Object.assign(ate.style, ateStyles);
 
     livro.appendChild(de);

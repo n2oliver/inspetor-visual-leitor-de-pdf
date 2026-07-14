@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Άνοιγμα και ακρόαση PDF χρησιμοποιώντας τον ενσωματωμένο αναγνώστη.",
+        "description": "Μήνυμα συμβουλής για το άνοιγμα και την ακρόαση PDF χρησιμοποιώντας τον ενσωματωμένο αναγνώστη."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Ενεργοποίηση του Αναγνώστη PDF για ακρόαση.",
+        "description": "Μήνυμα συμβουλής όταν ο Αναγνώστης PDF είναι απενεργοποιημένος."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Ενεργοποιημένο",
+        "description": "Ετικέτα που υποδεικνύει ότι ο Αναγνώστης PDF είναι ενεργοποιημένος."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Απενεργοποιημένο",
+        "description": "Ετικέτα που υποδεικνύει ότι ο Αναγνώστης PDF είναι απενεργοποιημένος."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Κλείδωμα στην επικάλυψη",
+        "description": "Ετικέτα για την επιλογή κλειδώματος του Αναγνώστη PDF κατά την επικάλυψη στοιχείων."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Ανάγνωση οθόνης",
+        "description": "Ετικέτα για την επιλογή ενεργοποίησης της υποστήριξης ανάγνωσης οθόνης στο Visual Inspector."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "Απόκρυψη PDF Reader",
+        "description": "Ετικέτα για την επιλογή απόκρυψης του PDF Reader."
+    },
+    "btnInfo": {
+        "message": "1. Ανοίξτε ένα PDF και ακούστε το δυνατά (σαν ηχητικό βιβλίο).",
+        "description": "Ενημερωτικό μήνυμα για το PDF Reader."
+    },
+    "info": {
+        "message": "<ol><li>Ανοίξτε ένα PDF και ακούστε το δυνατά (σαν ηχητικό βιβλίο).</li></ol>",
+        "description": "Ενημερωτικό μήνυμα για το PDF Reader."
+    }
+}

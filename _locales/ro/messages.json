@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Deschideți și ascultați fișiere PDF folosind cititorul încorporat.",
+        "description": "Mesaj de tip tooltip pentru deschiderea și ascultarea fișierelor PDF folosind cititorul încorporat."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Activați cititorul PDF să îl asculte.",
+        "description": "Mesaj de tip tooltip când cititorul PDF este dezactivat."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Activat",
+        "description": "Etichetă care indică faptul că cititorul PDF este activat."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Dezactivat",
+        "description": "Etichetă care indică faptul că cititorul PDF este dezactivat."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Blocare la suprapunere",
+        "description": "Etichetă pentru opțiunea de blocare a cititorului PDF la suprapunerea elementelor."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Cititor de ecran",
+        "description": "Etichetă pentru opțiunea de activare a suportului pentru cititorul de ecran în Visual Inspector."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "Ascundeți cititorul PDF",
+        "description": "Etichetă pentru opțiunea de ascundere a cititorului PDF."
+    },
+    "btnInfo": {
+        "message": "1. Deschideți un PDF și ascultați-l cu voce tare (ca o carte audio).",
+        "description": "Mesaj informativ pentru cititorul PDF."
+    },
+    "info": {
+        "message": "<ol><li>Deschideți un PDF și ascultați-l cu voce tare (ca pe o carte audio).</li></ol>",
+        "description": "Mesaj informativ pentru cititorul PDF."
+    }
+}

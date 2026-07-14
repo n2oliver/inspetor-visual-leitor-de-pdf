@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "使用内置阅读器打开并收听 PDF。",
+        "description": "关于使用内置阅读器打开并收听 PDF 的提示信息。"
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "启用 PDF 阅读器以收听内容。",
+        "description": "PDF 阅读器处于禁用状态时的提示信息。"
+    },
+    "labelForInspVisualLigado": {
+        "message": "已启用",
+        "description": "指示 PDF 阅读器已启用的标签。"
+    },
+    "labelForInspVisualDesligado": {
+        "message": "已禁用",
+        "description": "指示 PDF 阅读器已禁用的标签。"
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "覆盖时锁定",
+        "description": "用于在元素重叠时锁定 PDF 阅读器选项的标签。"
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "屏幕阅读器",
+        "description": "用于在 Visual Inspector 中启用屏幕阅读器支持选项的标签。"
+    },
+    "labelForInspVisualOcultar": {
+        "message": "隐藏 PDF 阅读器",
+        "description": "用于隐藏 PDF 阅读器选项的标签。"
+    },
+    "btnInfo": {
+        "message": "1. 打开 PDF 并收听朗读（如同有声读物）。",
+        "description": "PDF 阅读器的信息提示。"
+    },
+    "info": {
+        "message": "<ol><li>打开 PDF 并收听朗读（如同有声读物）。</li></ol>",
+        "description": "PDF 阅读器的信息提示。"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Atvērt un klausīties PDF failus, izmantojot iebūvēto lasītāju.",
+        "description": "Rīka padoma ziņojums PDF failu atvēršanai un klausīšanai, izmantojot iebūvēto lasītāju."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Iespējot PDF lasītāju, lai to klausītos.",
+        "description": "Rīka padoma ziņojums, ja PDF lasītājs ir atspējots."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Iespējots",
+        "description": "Apzīmējums, kas norāda, ka PDF lasītājs ir iespējots."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Atspējots",
+        "description": "Apzīmējums, kas norāda, ka PDF lasītājs ir atspējots."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Bloķēt pārklājumu",
+        "description": "Apzīmējums opcijai, kas bloķē PDF lasītāju, pārklājot elementus."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Ekrāna lasītājs",
+        "description": "Apzīmējums opcijai, kas iespējo ekrāna lasītāja atbalstu Vizuālajā inspektorā."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "Slēpt PDF lasītāju",
+        "description": "Apzīmējums opcijai, kas paslēpj PDF lasītāju."
+    },
+    "btnInfo": {
+        "message": "1. Atveriet PDF failu un klausieties to skaļi (kā audiogrāmatu).",
+        "description": "Informatīvs ziņojums PDF lasītājam."
+    },
+    "info": {
+        "message": "<ol><li>Atveriet PDF failu un klausieties to skaļi (kā audiogrāmatu).</li></ol>",
+        "description": "Informatīvs ziņojums PDF lasītājam."
+    }
+}

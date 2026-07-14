@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Buka dan dengarkan PDF menggunakan pembaca bawaan.",
+        "description": "Pesan tooltip untuk membuka dan mendengarkan PDF menggunakan pembaca bawaan."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Aktifkan Pembaca PDF untuk mendengarkannya.",
+        "description": "Pesan tooltip saat Pembaca PDF dinonaktifkan."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Diaktifkan",
+        "description": "Label yang menunjukkan bahwa Pembaca PDF diaktifkan."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Dinonaktifkan",
+        "description": "Label yang menunjukkan bahwa Pembaca PDF dinonaktifkan."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Kunci saat tumpang tindih",
+        "description": "Label untuk opsi mengunci Pembaca PDF saat menutupi elemen lain."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Pembaca layar",
+        "description": "Label untuk opsi mengaktifkan dukungan pembaca layar di Visual Inspector."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "Sembunyikan Pembaca PDF",
+        "description": "Label untuk opsi menyembunyikan Pembaca PDF."
+    },
+    "btnInfo": {
+        "message": "1. Buka PDF dan dengarkan isinya (seperti buku audio).",
+        "description": "Pesan informasi untuk Pembaca PDF."
+    },
+    "info": {
+        "message": "<ol><li>Buka PDF dan dengarkan isinya (seperti buku audio).</li></ol>",
+        "description": "Pesan informasi untuk Pembaca PDF."
+    }
+}

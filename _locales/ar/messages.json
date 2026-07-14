@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "افتح ملفات PDF واستمع إليها باستخدام القارئ المدمج.",
+        "description": "رسالة تلميح لفتح ملفات PDF والاستماع إليها باستخدام القارئ المدمج."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "فعّل قارئ PDF للاستماع إلى الملف.",
+        "description": "رسالة تلميح تظهر عند تعطيل قارئ PDF."
+    },
+    "labelForInspVisualLigado": {
+        "message": "مُفعَّل",
+        "description": "تسمية تشير إلى أن قارئ PDF مُفعَّل."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "مُعطَّل",
+        "description": "تسمية تشير إلى أن قارئ PDF مُعطَّل."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "القفل عند التراكب",
+        "description": "تسمية لخيار قفل قارئ PDF عند تراكب العناصر."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "قارئ الشاشة",
+        "description": "تسمية لخيار تفعيل دعم قارئ الشاشة في الأداة Visual Inspector."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "إخفاء قارئ PDF",
+        "description": "تسمية لخيار إخفاء قارئ PDF."
+    },
+    "btnInfo": {
+        "message": "1. افتح ملف PDF واستمع إليه بصوت مسموع (مثل الكتاب الصوتي).",
+        "description": "رسالة معلوماتية خاصة بقارئ PDF."
+    },
+    "info": {
+        "message": "<ol><li>افتح ملف PDF واستمع إليه بصوت مسموع (مثل الكتاب الصوتي).</li></ol>",
+        "description": "رسالة معلوماتية خاصة بقارئ PDF."
+    }
+}

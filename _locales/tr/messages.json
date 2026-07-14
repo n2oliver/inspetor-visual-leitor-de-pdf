@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Yerleşik okuyucuyu kullanarak PDF'leri açın ve dinleyin.",
+        "description": "Yerleşik okuyucuyla PDF'leri açıp dinlemeye yönelik araç ipucu mesajı."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Dinlemek için PDF Okuyucuyu etkinleştirin.",
+        "description": "PDF Okuyucu devre dışı bırakıldığında gösterilen araç ipucu mesajı."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Etkin",
+        "description": "PDF Okuyucunun etkin olduğunu belirten etiket."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Devre dışı",
+        "description": "PDF Okuyucunun devre dışı olduğunu belirten etiket."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Üzerine gelindiğinde kilitle",
+        "description": "Öğelerin üzerine gelindiğinde PDF Okuyucuyu kilitleme seçeneği için etiket."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Ekran okuyucu",
+        "description": "Visual Inspector'da ekran okuyucu desteğini etkinleştirme seçeneği için etiket."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "PDF Okuyucuyu gizle",
+        "description": "PDF Okuyucuyu gizleme seçeneği için etiket."
+    },
+    "btnInfo": {
+        "message": "1. Bir PDF açın ve sesli olarak dinleyin (sesli kitap gibi).",
+        "description": "PDF Okuyucu için bilgilendirme mesajı."
+    },
+    "info": {
+        "message": "<ol><li>Bir PDF açın ve sesli olarak dinleyin (sesli kitap gibi).</li></ol>",
+        "description": "PDF Okuyucu için bilgilendirme mesajı."
+    }
+}

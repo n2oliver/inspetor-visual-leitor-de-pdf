@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Отворите и слушајте PDF-ове помоћу уграђеног читача.",
+        "description": "Порука са описом за отварање и слушање PDF-ова помоћу уграђеног читача."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Омогућите PDF читачу да га слуша.",
+        "description": "Порука са описом када је PDF читач онемогућен."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Омогућено",
+        "description": "Ознака која показује да је PDF читач омогућен."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Онемогућено",
+        "description": "Ознака која показује да је PDF читач онемогућен."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Закључај при преклапању",
+        "description": "Ознака за опцију за закључавање PDF читача приликом преклапања елемената."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Читач екрана",
+        "description": "Ознака за опцију за омогућавање подршке за читач екрана у Визуелном инспектору."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "Сакриј PDF читач",
+        "description": "Ознака за опцију за скривање PDF читача."
+    },
+    "btnInfo": {
+        "message": "1. Отворите PDF и слушајте га наглас (као аудио књигу).",
+        "description": "Информативна порука за PDF читач."
+    },
+    "info": {
+        "message": "<ol><li>Отворите PDF и слушајте га наглас (као аудио-књигу).</li></ol>",
+        "description": "Информативна порука за PDF Reader."
+    }
+}

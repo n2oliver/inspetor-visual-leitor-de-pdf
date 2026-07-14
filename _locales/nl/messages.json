@@ -1,0 +1,38 @@
+{
+    "tooltip": {
+        "message": "Open en beluister PDF's met de ingebouwde lezer.",
+        "description": "Tooltipbericht voor het openen en beluisteren van PDF's met de ingebouwde lezer."
+    },
+    "tooltipForInspVisualDesligado": {
+        "message": "Schakel de PDF-lezer in om ernaar te luisteren.",
+        "description": "Tooltipbericht wanneer de PDF-lezer is uitgeschakeld."
+    },
+    "labelForInspVisualLigado": {
+        "message": "Ingeschakeld",
+        "description": "Label dat aangeeft dat de PDF-lezer is ingeschakeld."
+    },
+    "labelForInspVisualDesligado": {
+        "message": "Uitgeschakeld",
+        "description": "Label dat aangeeft dat de PDF-lezer is uitgeschakeld."
+    },
+    "labelForInspVisualBloquearAoSobrepor": {
+        "message": "Vergrendelen bij overlay",
+        "description": "Label voor de optie om de PDF-lezer te vergrendelen bij overlappende elementen."
+    },
+    "labelForInspVisualLeitorDeTela": {
+        "message": "Schermlezer",
+        "description": "Label voor de optie om ondersteuning voor schermlezers in Visual Inspector in te schakelen."
+    },
+    "labelForInspVisualOcultar": {
+        "message": "PDF-lezer verbergen",
+        "description": "Label voor de optie om de PDF-lezer te verbergen."
+    },
+    "btnInfo": {
+        "message": "1. Open een PDF en beluister deze hardop (zoals een luisterboek).",
+        "description": "Informatiebericht voor de PDF-lezer."
+    },
+    "info": {
+        "message": "<ol><li>Open een PDF en beluister deze hardop (zoals een luisterboek).</li></ol>",
+        "description": "Informatiebericht voor de PDF-lezer."
+    }
+}
