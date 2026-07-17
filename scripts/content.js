@@ -9,6 +9,8 @@ const livroId = "livro";
 const deId = "de";
 const ateId = "ate";
 
+const speakEndedEvent = new CustomEvent("speakEnded");
+
 const styleNode = document.createElement("style");
 styleNode.textContent = `/* Remove as setas no Chrome, Safari e Edge */
 input.leitorPDF::-webkit-outer-spin-button,
@@ -53,7 +55,7 @@ async function lerPDF(url, from, to) {
         let finalText = text;
         if(from || to) {
             finalText = "";
-            for(let i = from ? parseInt(from) : 0; i <= (to ? parseInt(to) : text.length); i++) {
+            for(let i = from || 1; i <= (to || totalPages ? parseInt(to || totalPages) : text.length); i++) {
                 finalText += text[i-1] + '\n';
             }
         }
@@ -91,6 +93,21 @@ window.addEventListener('load', async () => {
     
     window.focus();
     window.addEventListener("keydown", eventos);
+    
+    // Fetch a PDF from the web or load it from the file system
+    if(window.location.protocol != 'file:') {
+        const buffer = await fetch(window.location.href)
+            .then(res => res.arrayBuffer());
+        
+        if(!buffer) {
+            return;
+        }
+        const pdf = await getDocumentProxy(new Uint8Array(buffer));
+
+        mergePages = false;
+        const { totalPages, text } = await extractText(pdf, {mergePages});
+        listarPaginas(totalPages);
+    }
 });
 
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
@@ -104,6 +121,18 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 
     return true;
 });
+
+async function listarPaginas(totalPages) {
+    const de = document.getElementById(deId);
+    const ate = document.getElementById(ateId);
+    
+    let pages = "";
+    for(let i = 1; i <= totalPages; i++) {
+        pages += `<option value="${i}">${i}</option>`
+    }
+    de.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("from")}:</option>${ pages }`;
+    ate.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("to")}:</option>${ pages }`;
+}
 async function eventos(event) {
     if(event && event.keyCode == 79 && event.altKey && event.shiftKey) {
         const hideState = await chrome.storage.local.get(['leitor_pdf_ocultar']);
@@ -214,20 +243,20 @@ function buildLeitorDePDF() {
     const deStyles = {
         position: "absolute",
         left: "8px",
-        top: "20px",
-        width: "32px",
+        top: "10px",
+        width: "40px",
+        height: "40px",
         textAlign: "center",
-        borderRadius: "50%",
         zIndex: "99999999",
         cursor: "pointer",
     }
     const ateStyles = {
         position: "absolute",
         left: "60px",
-        top: "20px",
-        width: "32px",
+        top: "10px",
+        width: "40px",
+        height: "40px",
         textAlign: "center",
-        borderRadius: "50%",
         zIndex: "99999999",
         cursor: "pointer",
     }
@@ -294,8 +323,8 @@ function buildLeitorDePDF() {
     const pauseButton = document.createElement('div');
     const stopButton = document.createElement('div');
     const livro = document.createElement('div');
-    const de = document.createElement('input');
-    const ate = document.createElement('input');
+    const de = document.createElement('select');
+    const ate = document.createElement('select');
     const fileField = document.createElement('input');
 
     playButton.id = playButtonId;
@@ -341,12 +370,12 @@ fill="currentColor">
     document.body.appendChild(stopButton);
 
     de.id = deId;
-    de.type = "number";
+    de.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("from")}</option>`;
     de.classList.add("leitorPDF");
     Object.assign(de.style, deStyles);
     
     ate.id = ateId;
-    ate.type = "number";
+    ate.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("to")}</option>`;
     ate.classList.add("leitorPDF");
     Object.assign(ate.style, ateStyles);
 
@@ -379,6 +408,10 @@ fill="currentColor">
         const ateElement = document.getElementById(ateId);
         lerPDF(window.location.href, deElement.value, ateElement.value);
     });
+    playButtonElement.addEventListener('speakEnded', (event)=>{
+        pauseButtonElement.style.display = 'none';
+        playButtonElement.style.display = 'block';
+    });
     pauseButtonElement.addEventListener('click', (event)=>{
         pauseButtonElement.style.display = 'none';
         playButtonElement.style.display = 'block';
@@ -389,4 +422,46 @@ fill="currentColor">
         playButtonElement.style.display = 'block';
         cancelSpeak();
     });
+    de.addEventListener('change', ()=>{
+        if(parseInt(de.value) > parseInt(ate.value)) {
+            ate.value = de.value;
+        }
+    });
+    ate.addEventListener('change', ()=>{
+        if(parseInt(ate.value) < parseInt(de.value)) {
+            de.value = ate.value;
+        }
+    });
+    document.getElementById(fileFieldId).addEventListener('change', async (event) => {
+const input = document.getElementById(fileFieldId);
+    let file = input.files[0];
+    let fileBytes;
+    if(window.location.protocol == 'file:' && file && !decodeURI(window.location.href).endsWith(file.name)) {
+        alert("Para uma boa leitura, lembre-se de selecionar o mesmo .pdf que está aberto no navegador.");
+    }
+    try {
+        if(window.location.protocol == 'file:') {
+            fileBytes = await file.arrayBuffer();
+        }
+        // Fetch a PDF from the web or load it from the file system
+        const buffer = window.location.protocol != 'file:' ? await fetch(url)
+            .then(res => res.arrayBuffer()) : fileBytes;
+        
+        if(!buffer) {
+            return;
+        }
+        const pdf = await getDocumentProxy(new Uint8Array(buffer));
+
+        mergePages = false;
+        const { totalPages, text } = await extractText(pdf, {mergePages});
+        listarPaginas(totalPages);
+    } catch (e) {
+        alert("Primeiro selecione o .pdf no campo 'Escolher arquivo'.");
+        document.getElementById(playButtonId).style.display = "block";
+        document.getElementById(pauseButtonId).style.display = "none";
+
+        return;
+    }
+    });
 }
+export { playButtonId, speakEndedEvent }

@@ -34,5 +34,13 @@
     "info": {
         "message": "<ol><li>打开 PDF 并收听朗读（如同有声读物）。</li></ol>",
         "description": "PDF 阅读器的信息提示。"
+    },
+    "from": {
+        "message": "从",
+        "description": "指示从哪一页开始阅读"
+    },
+    "to": {
+        "message": "到",
+        "description": "指示阅读到哪一页结束"
     }
 }

@@ -34,5 +34,13 @@
     "info": {
         "message": "<ol><li>Buka PDF dan dengarkan isinya (seperti buku audio).</li></ol>",
         "description": "Pesan informasi untuk Pembaca PDF."
+    },
+    "from": {
+        "message": "Dari",
+        "description": "Menunjukkan halaman awal pembacaan"
+    },
+    "to": {
+        "message": "Sampai",
+        "description": "Menunjukkan halaman akhir pembacaan"
     }
 }

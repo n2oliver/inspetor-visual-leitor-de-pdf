@@ -1,5 +1,6 @@
 import { ordinais } from "./ordinais.js";
 import { abreviacoes } from "./abreviacoes.js";
+import { playButtonId, speakEndedEvent } from "./content.js";
 
 function camelParaHifen(texto) {
   return texto
@@ -29,7 +30,9 @@ async function speak(text) {
         if (result.voz) {
             utterance.voice = speechSynthesis.getVoices()[result.voz];
         }
-
+        utterance.addEventListener("end", (event) => {
+            document.getElementById(playButtonId).dispatchEvent(speakEndedEvent);
+        });
         speechSynthesis.speak(utterance);
     } else {
         console.info('Desculpe, seu navegador não suporta a API Web Speech.');

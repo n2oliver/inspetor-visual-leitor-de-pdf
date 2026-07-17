@@ -34,5 +34,13 @@
     "info": {
         "message": "<ol><li>PDFを開き、（オーディオブックのように）読み上げを聞く。</li></ol>",
         "description": "PDFリーダーに関する情報メッセージ。"
+    },
+    "from": {
+        "message": "開始ページ",
+        "description": "読み上げを開始するページを示します"
+    },
+    "to": {
+        "message": "終了ページ",
+        "description": "読み上げを終了するページを示します"
     }
 }

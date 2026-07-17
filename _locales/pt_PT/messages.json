@@ -34,5 +34,13 @@
     "info": {
         "message": "<ol><li>Abra um PDF e ouça-o em voz alta (como um audiolivro).</li></ol>",
         "description": "Mensagem informativa para o Leitor de PDF."
+    },
+    "from": {
+        "message": "De",
+        "description": "Indica a partir de que página será iniciada a leitura"
+    },
+    "to": {
+        "message": "Até",
+        "description": "Indica até que página a leitura será concluída"
     }
 }

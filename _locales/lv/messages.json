@@ -34,5 +34,13 @@
     "info": {
         "message": "<ol><li>Atveriet PDF failu un klausieties to skaļi (kā audiogrāmatu).</li></ol>",
         "description": "Informatīvs ziņojums PDF lasītājam."
+    },
+    "from": {
+        "message": "No",
+        "description": "Norāda, no kuras lapas lasīšana tiks sākta"
+    },
+    "to": {
+        "message": "Uz",
+        "description": "Norāda, līdz kurai lapai lasīšana tiks pabeigta"
     }
 }

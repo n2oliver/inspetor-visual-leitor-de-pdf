@@ -34,5 +34,13 @@
     "info": {
         "message": "<ol><li>Open een PDF en beluister deze hardop (zoals een luisterboek).</li></ol>",
         "description": "Informatiebericht voor de PDF-lezer."
+    },
+    "from": {
+        "message": "Van",
+        "description": "Geeft aan vanaf welke pagina het voorlezen begint"
+    },
+    "to": {
+        "message": "Tot",
+        "description": "Geeft aan tot welke pagina het voorlezen doorgaat"
     }
 }

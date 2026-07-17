@@ -34,5 +34,13 @@
     "info": {
         "message": "<ol><li>Bir PDF açın ve sesli olarak dinleyin (sesli kitap gibi).</li></ol>",
         "description": "PDF Okuyucu için bilgilendirme mesajı."
+    },
+    "from": {
+        "message": "Başlangıç",
+        "description": "Okumanın hangi sayfadan başlayacağını belirtir"
+    },
+    "to": {
+        "message": "Bitiş",
+        "description": "Okumanın hangi sayfada sona ereceğini belirtir"
     }
 }

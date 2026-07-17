@@ -34,5 +34,13 @@
     "info": {
         "message": "<ol><li>Deschideți un PDF și ascultați-l cu voce tare (ca pe o carte audio).</li></ol>",
         "description": "Mesaj informativ pentru cititorul PDF."
+    },
+    "from": {
+        "message": "De la",
+        "description": "Indică de la ce pagină va începe citirea"
+    },
+    "to": {
+        "message": "To",
+        "description": "Indică până la ce pagină va termina citirea"
     }
 }

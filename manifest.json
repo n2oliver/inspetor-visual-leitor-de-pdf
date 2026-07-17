@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Inspetor Visual - Leitor de PDF",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "default_locale": "en",
   "description": "Ouça audiobooks a partir de arquivos PDF no navegador.",
   "permissions": [

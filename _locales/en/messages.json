@@ -34,5 +34,13 @@
     "info": {
         "message": "<ol><li>Open a PDF and listen to it aloud (like an audiobook).</li></ol>",
         "description": "Informational message for the PDF Reader."
+    },
+    "from": {
+        "message": "From",
+        "description": "Indicates from what page the reading will be started"
+    },
+    "to": {
+        "message": "To",
+        "description": "Indicates to what page the reading will be finished"
     }
 }
