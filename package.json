@@ -7,8 +7,8 @@
     "build": "node build.js"
   },
   "name": "inspetor-visual",
-  "version": "1.0.0",
-  "description": "Copie o HTML e o CSS de qualquer elemento de uma página com apenas um clique. Basta selecionar o componente desejado para obter rapidamente sua estrutura HTML e seus estilos CSS, facilitando estudos, prototipação, depuração e desenvolvimento web.",
+  "version": "0.5.5",
+  "description": "Ouça audiobooks a partir de arquivos PDF no navegador.",
   "main": "background.js",
   "directories": {
     "test": "tests"

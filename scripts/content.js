@@ -95,7 +95,7 @@ window.addEventListener('load', async () => {
     window.addEventListener("keydown", eventos);
     
     // Fetch a PDF from the web or load it from the file system
-    if(window.location.protocol != 'file:') {
+    if(ehPDF && window.location.protocol != 'file:') {
         const buffer = await fetch(window.location.href)
             .then(res => res.arrayBuffer());
         

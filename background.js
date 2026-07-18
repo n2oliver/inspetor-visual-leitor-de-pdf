@@ -1,5 +1,6 @@
 chrome.runtime.onInstalled.addListener(async () => {
   await chrome.storage.local.set({leitor_pdf_ocultar: false});
+  await chrome.storage.local.set({insp_visual_ligado: true});
 });
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
   const [tab] = await chrome.tabs.query({
