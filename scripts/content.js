@@ -492,8 +492,8 @@ const input = document.getElementById(fileFieldId);
     });
     document.getElementById(velocidadeId).addEventListener("change", (event) => {
         if ('speechSynthesis' in window) {
-            utterance.rate = 1.6 * (parseInt(event.target.value) / 100)
-            utterance.pitch = 1.25 / (parseInt(event.target.value) / 100)
+            utterance.rate = 1.5 * (parseInt(event.target.value) / 100)
+            utterance.pitch = 0.75 / (parseInt(event.target.value) / 100)
         }
     })
 }

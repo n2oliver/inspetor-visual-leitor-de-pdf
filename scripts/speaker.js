@@ -18,8 +18,8 @@ async function speak(text) {
         const result = await chrome.storage.local.get(["voz"]);
         utterance = new SpeechSynthesisUtterance(capitalizeSentences(text));
         utterance.lang = 'pt-BR';
-        utterance.rate = 1.6 * (parseInt(document.getElementById(velocidadeId).value) / 100);
-        utterance.pitch = 1.25 / (parseInt(document.getElementById(velocidadeId).value) / 100);
+        utterance.rate = 1.5 * (parseInt(document.getElementById(velocidadeId).value) / 100);
+        utterance.pitch = 0.75 / (parseInt(document.getElementById(velocidadeId).value) / 100);
         if (result.voz) {
             utterance.voice = speechSynthesis.getVoices()[result.voz];
         }
