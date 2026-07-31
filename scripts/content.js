@@ -130,8 +130,12 @@ async function listarPaginas(totalPages) {
     for(let i = 1; i <= totalPages; i++) {
         pages += `<option value="${i}">${i}</option>`
     }
-    de.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("from")}:</option>${ pages }`;
-    ate.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("to")}:</option>${ pages }`;
+    if(de) {
+        de.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("from")}:</option>${ pages }`;
+    }
+    if(ate) {
+        ate.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("to")}:</option>${ pages }`;
+    }
 }
 async function eventos(event) {
     if(event && event.keyCode == 79 && event.altKey && event.shiftKey) {
