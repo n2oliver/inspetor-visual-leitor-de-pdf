@@ -1,6 +1,7 @@
 import { abreviacoes } from "./abreviacoes.js";
-import { playButtonId, speakEndedEvent } from "./content.js";
+import { playButtonId, speakEndedEvent, velocidadeId } from "./content.js";
 
+let utterance;
 function camelParaHifen(texto) {
   return texto
     // Adiciona um hífen antes de qualquer letra maiúscula
@@ -15,10 +16,10 @@ async function speak(text) {
             text = text.replace(regex, substituicao);
         }
         const result = await chrome.storage.local.get(["voz"]);
-        const utterance = new SpeechSynthesisUtterance(capitalizeSentences(text));
+        utterance = new SpeechSynthesisUtterance(capitalizeSentences(text));
         utterance.lang = 'pt-BR';
-        utterance.rate = 1.6;
-        utterance.pitch = 1.25;
+        utterance.rate = 1.6 * (parseInt(document.getElementById(velocidadeId).value) / 100);
+        utterance.pitch = 1.25 / (parseInt(document.getElementById(velocidadeId).value) / 100);
         if (result.voz) {
             utterance.voice = speechSynthesis.getVoices()[result.voz];
         }
@@ -44,4 +45,4 @@ function capitalizeSentences(texto) {
         (_, inicio, letra) => inicio + letra.toUpperCase()
     );
 }
-export { speak, cancelSpeak };
+export { speak, cancelSpeak, utterance };

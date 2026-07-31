@@ -7,7 +7,7 @@
     "build": "node build.js"
   },
   "name": "inspetor-visual",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "Ouça audiobooks a partir de arquivos PDF no navegador.",
   "main": "background.js",
   "directories": {

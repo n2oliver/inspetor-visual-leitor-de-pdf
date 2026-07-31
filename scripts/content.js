@@ -1,5 +1,5 @@
 import { extractText, getDocumentProxy } from "unpdf";
-import { speak, cancelSpeak } from "./speaker.js";
+import { speak, cancelSpeak, utterance } from "./speaker.js";
 
 const fileFieldId = "file-field";
 const playButtonId = "ouvir-pdf";
@@ -8,6 +8,7 @@ const stopButtonId = "parar-de-ouvir";
 const livroId = "livro";
 const deId = "de";
 const ateId = "ate";
+const velocidadeId = "velocidade";
 
 const speakEndedEvent = new CustomEvent("speakEnded");
 
@@ -239,7 +240,7 @@ function buildLeitorDePDF() {
         backgroundSize: "contain",
         backgroundPosition: "center",
         position: "fixed",
-        bottom: "68px",
+        bottom: "92px",
         right: "8px",
         zIndex: "99999998",
     };
@@ -272,7 +273,7 @@ function buildLeitorDePDF() {
         color: 'forestgreen',
         position: 'fixed',
         borderRadius: '50%',
-        bottom: '0px',
+        bottom: '24px',
         right: '0px',
         marginRight: '8px',
         marginBottom: '8px',
@@ -288,7 +289,7 @@ function buildLeitorDePDF() {
         color: 'darkorange',
         position: 'fixed',
         borderRadius: '50%',
-        bottom: '0px',
+        bottom: '24px',
         right: '0px',
         marginRight: '8px',
         marginBottom: '8px',
@@ -305,7 +306,7 @@ function buildLeitorDePDF() {
         color: 'red',
         position: 'fixed',
         borderRadius: '50%',
-        bottom: '0px',
+        bottom: '24px',
         right: '72px',
         marginRight: '8px',
         marginBottom: '8px',
@@ -316,12 +317,21 @@ function buildLeitorDePDF() {
 
     const fileStyles = {
         position: "fixed",
-        bottom: "142px",
+        bottom: "166px",
         right: "-156px",
         color: "transparent",
         zIndex: "99999999",
         cursor: "pointer",
     };
+    const velocidadeStyle = {
+        width: "112px",
+        position: "fixed",
+        bottom: "4px",
+        right: "12px",
+        color: "black",
+        zIndex: "99999999",
+        cursor: "pointer",
+    }
 
     const playButton = document.createElement('div');
     const pauseButton = document.createElement('div');
@@ -330,6 +340,7 @@ function buildLeitorDePDF() {
     const de = document.createElement('select');
     const ate = document.createElement('select');
     const fileField = document.createElement('input');
+    const velocidade = document.createElement('input');
 
     playButton.id = playButtonId;
     playButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"
@@ -400,6 +411,18 @@ fill="currentColor">
     }
     
     document.body.appendChild(fileField);
+
+    velocidade.id = velocidadeId;
+    velocidade.type = "range";
+    velocidade.name = velocidadeId;
+    velocidade.min = 25;
+    velocidade.max = 200;
+    velocidade.value = 100;
+    velocidade.step = 10;
+
+    Object.assign(velocidade.style, velocidadeStyle);
+
+    document.body.appendChild(velocidade);
     
     playButtonElement.addEventListener('click', (event)=>{
         playButtonElement.style.display = 'none';
@@ -467,5 +490,11 @@ const input = document.getElementById(fileFieldId);
         return;
     }
     });
+    document.getElementById(velocidadeId).addEventListener("change", (event) => {
+        if ('speechSynthesis' in window) {
+            utterance.rate = 1.6 * (parseInt(event.target.value) / 100)
+            utterance.pitch = 1.25 / (parseInt(event.target.value) / 100)
+        }
+    })
 }
-export { playButtonId, speakEndedEvent }
+export { playButtonId, speakEndedEvent, velocidadeId }
