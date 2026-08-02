@@ -1,5 +1,6 @@
 import { abreviacoes } from "./abreviacoes.js";
-import { playButtonId, speakEndedEvent, velocidadeId } from "./content.js";
+import { playButtonId, speakEndedEvent } from "./content.js";
+import { velocidadeId } from "./rate.js";
 
 let utterance;
 function camelParaHifen(texto) {

@@ -1,14 +1,16 @@
 import { extractText, getDocumentProxy } from "unpdf";
-import { speak, cancelSpeak, utterance } from "./speaker.js";
+import { speak } from "./speaker.js";
+import { buildLeitorDePDF } from "./builder.js";
+import { fileFieldId } from "./file-field.js";
+import { playButtonId } from "./play-button.js";
+import { pauseButtonId } from "./pause-button.js";
+import { stopButtonId } from "./stop-button.js";
+import { bookId } from "./book.js";
+import { fromId } from "./from.js";
+import { toId } from "./to.js";
 
-const fileFieldId = "file-field";
-const playButtonId = "ouvir-pdf";
-const pauseButtonId = "pausar-pdf";
-const stopButtonId = "parar-de-ouvir";
-const livroId = "livro";
-const deId = "de";
-const ateId = "ate";
-const velocidadeId = "velocidade";
+const pathSplit = window.location.pathname.split('/');
+const fileName = pathSplit[pathSplit.length-1];
 
 const speakEndedEvent = new CustomEvent("speakEnded");
 
@@ -31,7 +33,7 @@ async function lerPDF(url, from, to) {
     let file = input.files[0];
     let fileBytes;
     if(window.location.protocol == 'file:' && file && !decodeURI(window.location.href).endsWith(file.name)) {
-        alert("Para uma boa leitura, lembre-se de selecionar o mesmo .pdf que está aberto no navegador.");
+        alert("Para uma boa leitura, lembre-se from selecionar o mesmo .pdf que está aberto no navegador.");
     }
     try {
         if(window.location.protocol == 'file:') {
@@ -124,18 +126,18 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 });
 
 async function listarPaginas(totalPages) {
-    const de = document.getElementById(deId);
-    const ate = document.getElementById(ateId);
+    const from = document.getElementById(fromId);
+    const to = document.getElementById(toId);
     
     let pages = "";
     for(let i = 1; i <= totalPages; i++) {
         pages += `<option value="${i}">${i}</option>`
     }
-    if(de) {
-        de.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("from")}:</option>${ pages }`;
+    if(from) {
+        from.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("from")}:</option>${ pages }`;
     }
-    if(ate) {
-        ate.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("to")}:</option>${ pages }`;
+    if(to) {
+        to.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("to")}:</option>${ pages }`;
     }
 }
 async function eventos(event) {
@@ -164,9 +166,8 @@ function ocultarLeitorDePDF() {
         const playButton = document.getElementById(playButtonId);
         const pauseButton = document.getElementById(pauseButtonId);
         const stopButton = document.getElementById(stopButtonId);
-        const livro = document.getElementById(livroId);
-        const de = document.getElementById(deId);
-        const ate = document.getElementById(ateId);
+        const from = document.getElementById(fromId);
+        const to = document.getElementById(toId);
 
         if(fileField) {
             fileField.style.display = 'none';
@@ -183,11 +184,11 @@ function ocultarLeitorDePDF() {
         if(livro) {
             livro.style.display = 'none';
         }
-        if(de) {
-            de.style.display = 'none';
+        if(from) {
+            from.style.display = 'none';
         }
-        if(ate) {
-            ate.style.display = 'none';
+        if(to) {
+            to.style.display = 'none';
         }
     }
 }
@@ -201,9 +202,9 @@ async function exibirLeitorDePDF() {
         const playButton = document.getElementById(playButtonId);
         const pauseButton = document.getElementById(pauseButtonId);
         const stopButton = document.getElementById(stopButtonId);
-        const livro = document.getElementById(livroId);
-        const de = document.getElementById(deId);
-        const ate = document.getElementById(ateId);
+        const livro = document.getElementById(bookId);
+        const from = document.getElementById(fromId);
+        const to = document.getElementById(toId);
 
         if(fileField && window.location.protocol == 'file:') {
             fileField.style.display = 'block';
@@ -220,281 +221,13 @@ async function exibirLeitorDePDF() {
         if(livro) {
             livro.style.display = 'block';
         }
-        if(de) {
-            de.style.display = 'block';
+        if(from) {
+            from.style.display = 'block';
         }
-        if(ate) {
-            ate.style.display = 'block';
+        if(to) {
+            to.style.display = 'block';
         }
     }
 }
-function buildLeitorDePDF() {
-    window.onmousemove = null;
-    window.focus();
 
-    const livroStyles = {
-        width: "108px",
-        height: "66px",
-        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 108 66'%3E%3Cpath d='M2 6 Q28 1 54 9 Q80 1 106 6 V58 Q80 53 54 64 Q28 53 2 58 Z' fill='white' stroke='%23666' stroke-width='1.5'/%3E%3Cline x1='54' y1='9' x2='54' y2='64' stroke='%23666' stroke-width='1.5'/%3E%3C/svg%3E")`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        position: "fixed",
-        bottom: "92px",
-        right: "8px",
-        zIndex: "99999998",
-    };
-
-    const deStyles = {
-        position: "absolute",
-        left: "8px",
-        top: "10px",
-        width: "40px",
-        height: "40px",
-        textAlign: "center",
-        zIndex: "99999999",
-        cursor: "pointer",
-    }
-    const ateStyles = {
-        position: "absolute",
-        left: "60px",
-        top: "10px",
-        width: "40px",
-        height: "40px",
-        textAlign: "center",
-        zIndex: "99999999",
-        cursor: "pointer",
-    }
-
-    const playStyles = {
-        width: '60px',
-        height: '60px',
-        backgroundColor: 'darkgreen',
-        color: 'forestgreen',
-        position: 'fixed',
-        borderRadius: '50%',
-        bottom: '24px',
-        right: '0px',
-        marginRight: '8px',
-        marginBottom: '8px',
-        outline: 'outset',
-        zIndex: "99999999",
-        cursor: "pointer",
-    }
-    
-    const pauseStyles = {
-        width: '60px',
-        height: '60px',
-        backgroundColor: 'orange',
-        color: 'darkorange',
-        position: 'fixed',
-        borderRadius: '50%',
-        bottom: '24px',
-        right: '0px',
-        marginRight: '8px',
-        marginBottom: '8px',
-        outline: 'outset',
-        display: 'none',
-        zIndex: "99999998",
-        cursor: "pointer",
-    }
-    
-    const stopStyles = {
-        width: '48px',
-        height: '48px',
-        backgroundColor: 'darkred',
-        color: 'red',
-        position: 'fixed',
-        borderRadius: '50%',
-        bottom: '24px',
-        right: '72px',
-        marginRight: '8px',
-        marginBottom: '8px',
-        outline: 'outset',
-        zIndex: "99999999",
-        cursor: "pointer",
-    }
-
-    const fileStyles = {
-        position: "fixed",
-        bottom: "166px",
-        right: "-156px",
-        color: "transparent",
-        zIndex: "99999999",
-        cursor: "pointer",
-    };
-    const velocidadeStyle = {
-        width: "112px",
-        position: "fixed",
-        bottom: "4px",
-        right: "12px",
-        color: "black",
-        zIndex: "99999999",
-        cursor: "pointer",
-    }
-
-    const playButton = document.createElement('div');
-    const pauseButton = document.createElement('div');
-    const stopButton = document.createElement('div');
-    const livro = document.createElement('div');
-    const de = document.createElement('select');
-    const ate = document.createElement('select');
-    const fileField = document.createElement('input');
-    const velocidade = document.createElement('input');
-
-    playButton.id = playButtonId;
-    playButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"
-width="60"
-height="60"
-viewBox="0 0 24 24"
-fill="currentColor">
-<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10
-    10-4.48 10-10S17.52 2 12 2zm-2 14V8l6 4-6 4z"/>
-</svg>`;
-    
-    Object.assign(playButton.style, playStyles);
-    document.body.appendChild(playButton);
-    const playButtonElement = document.getElementById(playButton.id);
-
-    pauseButton.id = pauseButtonId;
-    pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"
-width="60"
-height="60"
-viewBox="0 0 24 24"
-fill="currentColor">
-<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4 5h3v10H8zm5 0h3v10h-3z"/>
-</svg>`;
-    
-    Object.assign(pauseButton.style, pauseStyles);
-    document.body.appendChild(pauseButton);
-    const pauseButtonElement = document.getElementById(pauseButton.id);
-
-    stopButton.id = stopButtonId;
-    stopButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"
-width="48"
-height="48"
-viewBox="0 0 24 24"
-fill="currentColor">
-<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4 6h8v8H8z"/>
-</svg>`;
-    Object.assign(stopButton.style, stopStyles);
-    document.body.appendChild(stopButton);
-
-    livro.id = livroId;
-    Object.assign(livro.style, livroStyles);
-    document.body.appendChild(stopButton);
-
-    de.id = deId;
-    de.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("from")}</option>`;
-    de.classList.add("leitorPDF");
-    Object.assign(de.style, deStyles);
-    
-    ate.id = ateId;
-    ate.innerHTML = `<option selected disabled value="">${chrome.i18n.getMessage("to")}</option>`;
-    ate.classList.add("leitorPDF");
-    Object.assign(ate.style, ateStyles);
-
-    livro.appendChild(de);
-    livro.appendChild(ate);
-
-    document.body.appendChild(livro);
-
-    fileField.id = fileFieldId;
-    fileField.type = "file";
-    fileField.accept = "application/pdf";
-    fileField.innerHTML = `<label for="${fileFieldId}"></label>`;
-
-    Object.assign(fileField.style, fileStyles);
-
-    if(!window.location.href.startsWith("file:")) {
-        fileField.style.display = "none";
-    }
-    
-    document.body.appendChild(fileField);
-
-    velocidade.id = velocidadeId;
-    velocidade.type = "range";
-    velocidade.name = velocidadeId;
-    velocidade.min = 25;
-    velocidade.max = 200;
-    velocidade.value = 100;
-    velocidade.step = 10;
-
-    Object.assign(velocidade.style, velocidadeStyle);
-
-    document.body.appendChild(velocidade);
-    
-    playButtonElement.addEventListener('click', (event)=>{
-        playButtonElement.style.display = 'none';
-        pauseButtonElement.style.display = 'block';
-        if(window.speechSynthesis.paused) {
-            window.speechSynthesis.resume();
-            return;
-        }
-        const deElement = document.getElementById(deId);
-        const ateElement = document.getElementById(ateId);
-        lerPDF(window.location.href, deElement.value, ateElement.value);
-    });
-    playButtonElement.addEventListener('speakEnded', (event)=>{
-        pauseButtonElement.style.display = 'none';
-        playButtonElement.style.display = 'block';
-    });
-    pauseButtonElement.addEventListener('click', (event)=>{
-        pauseButtonElement.style.display = 'none';
-        playButtonElement.style.display = 'block';
-        window.speechSynthesis.pause();
-    });
-    document.getElementById(stopButtonId).addEventListener('click', (event)=>{
-        pauseButtonElement.style.display = 'none';
-        playButtonElement.style.display = 'block';
-        cancelSpeak();
-    });
-    de.addEventListener('change', ()=>{
-        if(parseInt(de.value) > parseInt(ate.value)) {
-            ate.value = de.value;
-        }
-    });
-    ate.addEventListener('change', ()=>{
-        if(parseInt(ate.value) < parseInt(de.value)) {
-            de.value = ate.value;
-        }
-    });
-    document.getElementById(fileFieldId).addEventListener('change', async (event) => {
-const input = document.getElementById(fileFieldId);
-    let file = input.files[0];
-    let fileBytes;
-    if(window.location.protocol == 'file:' && file && !decodeURI(window.location.href).endsWith(file.name)) {
-        alert("Para uma boa leitura, lembre-se de selecionar o mesmo .pdf que está aberto no navegador.");
-    }
-    try {
-        if(window.location.protocol == 'file:') {
-            fileBytes = await file.arrayBuffer();
-        }
-        // Fetch a PDF from the web or load it from the file system
-        const buffer = window.location.protocol != 'file:' ? await fetch(url)
-            .then(res => res.arrayBuffer()) : fileBytes;
-        
-        if(!buffer) {
-            return;
-        }
-        const pdf = await getDocumentProxy(new Uint8Array(buffer));
-
-        mergePages = false;
-        const { totalPages, text } = await extractText(pdf, {mergePages});
-        listarPaginas(totalPages);
-    } catch (e) {
-        alert("Primeiro selecione o .pdf no campo 'Escolher arquivo'.");
-        document.getElementById(playButtonId).style.display = "block";
-        document.getElementById(pauseButtonId).style.display = "none";
-
-        return;
-    }
-    });
-    document.getElementById(velocidadeId).addEventListener("change", (event) => {
-        if ('speechSynthesis' in window) {
-            utterance.rate = 1.5 * (parseInt(event.target.value) / 100)
-            utterance.pitch = 0.75 / (parseInt(event.target.value) / 100)
-        }
-    })
-}
-export { playButtonId, speakEndedEvent, velocidadeId }
+export { playButtonId, speakEndedEvent,lerPDF }
