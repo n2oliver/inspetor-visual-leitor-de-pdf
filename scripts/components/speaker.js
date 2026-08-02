@@ -1,5 +1,6 @@
 import { abreviacoes } from "../abreviacoes.js";
-import { playButtonId, speakEndedEvent } from "../content.js";
+import { speakEndedEvent } from "../content.js";
+import { playButtonId } from "./play-button.js";
 import { velocidadeId } from "./rate.js";
 
 let utterance;

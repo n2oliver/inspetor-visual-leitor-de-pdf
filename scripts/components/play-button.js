@@ -1,4 +1,4 @@
-import { lerPDF } from "../content";
+import { reader } from "../reader";
 import { fromId } from "./from";
 import { pauseButtonId } from "./pause-button";
 import { toId } from "./to";
@@ -46,7 +46,7 @@ function playButton() {
         }
         const fromElement = document.getElementById(fromId);
         const toElement = document.getElementById(toId);
-        lerPDF(window.location.href, fromElement.value, toElement.value);
+        reader.lerPDF(window.location.href, fromElement.value, toElement.value);
     });
     playButtonElement.addEventListener('speakEnded', (event) => {
         const pauseButtonElement = document.getElementById(pauseButtonId);

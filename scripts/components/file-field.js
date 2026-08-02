@@ -44,7 +44,7 @@ function fileField() {
 
             mergePages = false;
             const { totalPages, text } = await extractText(pdf, { mergePages });
-            listarPaginas(totalPages);
+            reader.listarPaginas(totalPages);
         } catch (e) {
             alert("Primeiro selecione o .pdf no campo 'Escolher arquivo'.");
             document.getElementById(playButtonId).style.display = "block";
