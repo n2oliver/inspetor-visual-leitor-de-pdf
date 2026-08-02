@@ -1,13 +1,13 @@
 import { extractText, getDocumentProxy } from "unpdf";
-import { speak } from "./speaker.js";
+import { speak } from "./components/speaker.js";
 import { buildLeitorDePDF } from "./builder.js";
-import { fileFieldId } from "./file-field.js";
-import { playButtonId } from "./play-button.js";
-import { pauseButtonId } from "./pause-button.js";
-import { stopButtonId } from "./stop-button.js";
-import { bookId } from "./book.js";
-import { fromId } from "./from.js";
-import { toId } from "./to.js";
+import { fileFieldId } from "./components/file-field.js";
+import { playButtonId } from "./components/play-button.js";
+import { pauseButtonId } from "./components/pause-button.js";
+import { stopButtonId } from "./components/stop-button.js";
+import { bookId } from "./components/book.js";
+import { fromId } from "./components/from.js";
+import { toId } from "./components/to.js";
 
 const pathSplit = window.location.pathname.split('/');
 const fileName = pathSplit[pathSplit.length-1];

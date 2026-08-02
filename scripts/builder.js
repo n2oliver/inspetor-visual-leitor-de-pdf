@@ -1,11 +1,11 @@
-import { fileField } from "./file-field.js";
-import { playButton } from "./play-button.js";
-import { pauseButton } from "./pause-button.js";
-import { stopButton } from "./stop-button.js";
-import { book } from "./book.js";
-import { to } from "./to.js";
-import { from } from "./from.js";
-import { rate } from "./rate.js";
+import { fileField } from "./components/file-field.js";
+import { playButton } from "./components/play-button.js";
+import { pauseButton } from "./components/pause-button.js";
+import { stopButton } from "./components/stop-button.js";
+import { book } from "./components/book.js";
+import { to } from "./components/to.js";
+import { from } from "./components/from.js";
+import { rate } from "./components/rate.js";
 
 function buildLeitorDePDF() {
     window.onmousemove = null;

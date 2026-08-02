@@ -1,4 +1,4 @@
-import { lerPDF } from "./content";
+import { lerPDF } from "../content";
 import { fromId } from "./from";
 import { pauseButtonId } from "./pause-button";
 import { toId } from "./to";
