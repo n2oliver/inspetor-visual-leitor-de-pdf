@@ -10,5 +10,6 @@ const abreviacoes = [
     [/•/gi, "; "],
     [/\b\:/gi, ". "],
     [/\b\./gi, "\n"],
+    [/◼/gi, "\n"],
 ];
 export { abreviacoes };
