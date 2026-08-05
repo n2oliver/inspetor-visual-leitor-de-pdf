@@ -34,12 +34,11 @@ async function speak(text) {
     }
 }
 function pitch(rate) {
-    const rMin = 0.5;
-    const rMax = 2.0;
-    const pMin = 0.5;
-    const pMax = 2.0;
+    // Compensação suave
+    let pitch = 1 - 0.12 * (rate - 1);
 
-    return pMax - ((rate - rMin) / (rMax - rMin)) * (pMax - pMin);
+    // Limites para evitar distorção
+    return Math.min(1.05, Math.max(0.9, pitch));
 }
 
 function cancelSpeak() {
