@@ -20,7 +20,7 @@ async function speak(text) {
         const result = await chrome.storage.local.get(["voz"]);
         utterance = new SpeechSynthesisUtterance(capitalizeSentences(text));
         utterance.lang = 'pt-BR';
-        utterance.rate = 1.5 * (parseInt(document.getElementById(velocidadeId).value) / 100);
+        utterance.rate = Number(document.getElementById(velocidadeId).value) * 0.01;
         utterance.pitch = pitch(utterance.rate);
         if (result.voz) {
             utterance.voice = speechSynthesis.getVoices()[result.voz];

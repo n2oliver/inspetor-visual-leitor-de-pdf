@@ -23,7 +23,7 @@ function rate() {
     document.body.appendChild(velocidade);
     document.getElementById(velocidadeId).addEventListener("change", (event) => {
         if ('speechSynthesis' in window) {
-            utterance.rate = 1.5 * (parseInt(event.target.value) / 100);
+            utterance.rate = Number(document.getElementById(velocidadeId).value) * 0.01;
             utterance.pitch = pitch(utterance.rate);
         }
     })
