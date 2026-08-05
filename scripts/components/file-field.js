@@ -1,5 +1,7 @@
+import { extractText, getDocumentProxy } from "unpdf";
 import { pauseButtonId } from "./pause-button";
 import { playButtonId } from "./play-button";
+import { reader } from "../reader";
 
 const fileFieldId = "file-field";
 function fileField() {

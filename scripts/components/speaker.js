@@ -21,7 +21,7 @@ async function speak(text) {
         utterance = new SpeechSynthesisUtterance(capitalizeSentences(text));
         utterance.lang = 'pt-BR';
         utterance.rate = 1.5 * (parseInt(document.getElementById(velocidadeId).value) / 100);
-        utterance.pitch = 0.75 / (parseInt(document.getElementById(velocidadeId).value) / 100);
+        utterance.pitch = pitch(utterance.rate);
         if (result.voz) {
             utterance.voice = speechSynthesis.getVoices()[result.voz];
         }
@@ -32,6 +32,14 @@ async function speak(text) {
     } else {
         console.info('Desculpe, seu navegador não suporta a API Web Speech.');
     }
+}
+function pitch(rate) {
+    const rMin = 0.5;
+    const rMax = 2.0;
+    const pMin = 0.5;
+    const pMax = 2.0;
+
+    return pMax - ((rate - rMin) / (rMax - rMin)) * (pMax - pMin);
 }
 
 function cancelSpeak() {
@@ -47,4 +55,4 @@ function capitalizeSentences(texto) {
         (_, inicio, letra) => inicio + letra.toUpperCase()
     );
 }
-export { speak, cancelSpeak, utterance };
+export { speak, cancelSpeak, utterance, pitch };

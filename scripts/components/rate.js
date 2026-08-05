@@ -1,4 +1,4 @@
-import { utterance } from "./speaker";
+import { pitch, utterance } from "./speaker";
 
 const velocidadeId = "velocidade";
 function rate() {
@@ -23,8 +23,8 @@ function rate() {
     document.body.appendChild(velocidade);
     document.getElementById(velocidadeId).addEventListener("change", (event) => {
         if ('speechSynthesis' in window) {
-            utterance.rate = 1.5 * (parseInt(event.target.value) / 100)
-            utterance.pitch = 0.75 / (parseInt(event.target.value) / 100)
+            utterance.rate = 1.5 * (parseInt(event.target.value) / 100);
+            utterance.pitch = pitch(utterance.rate);
         }
     })
 }
